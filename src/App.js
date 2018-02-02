@@ -15,10 +15,8 @@ class App extends Component {
       <Provider store={store}>
         <Router history={browserHistory}>
           <Route path='/' component={AppComponent}>
-            <Route path="todo" component={Index}>
-              <IndexRedirect to="index" />
-              <Route path="/(:filter)" component={Index} />
-            </Route>
+            <IndexRedirect to="todo/all" />
+            <Route path="todo/:filter" component={Index} />
           </Route>
         </Router>
       </Provider>

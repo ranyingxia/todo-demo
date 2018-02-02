@@ -23,7 +23,7 @@ import React from 'react'
 const FilterLink = ({ filter, children }) => (
   <Link
     // to={ filter === 'all' ? '' : filter}
-    to={ filter === '' ? 'all' : filter}
+    to={ `/todo/${filter === '' ? 'all' : filter}`}
     activeStyle={{
       textDecoration: 'none',
       color: 'black'
