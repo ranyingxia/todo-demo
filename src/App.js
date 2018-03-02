@@ -4,6 +4,7 @@ import { createStore } from 'redux'
 import { Router, Route, browserHistory, IndexRedirect } from 'react-router'
 import reducer from './reducers'
 import Index from './components/Index'
+import pageIndex from './page/index'
 import Layout from './Layout'
 
 const store = createStore(reducer)
@@ -17,6 +18,10 @@ class App extends Component {
           <Route path='/' component={AppComponent}>
             <IndexRedirect to="todo/all" />
             <Route path="todo/:filter" component={Index} />
+            <Route path='component'>
+              <IndexRedirect to="input" />
+              <Route path="input" component={pageIndex} />
+            </Route>
           </Route>
         </Router>
       </Provider>
