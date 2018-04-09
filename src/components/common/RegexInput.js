@@ -68,7 +68,7 @@ class RegexInput extends Component{
   render() {
     const suffix = this.state.inputValue ? <Icon type="close-circle" onClick={e => this.emitEmpty(e)} /> : null
     return (
-      <Input 
+      <Input
       ref={(r) => {this.closeInput = r}}
       value={this.state.inputValue}
       onChange={e => this.handleChange(e)}

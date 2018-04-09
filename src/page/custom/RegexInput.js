@@ -1,5 +1,5 @@
 import React from 'react'
-import RegexInput from '../components/common/RegexInput'
+import RegexInput from '../../components/common/RegexInput'
 
 class Index extends React.Component {
   onChange(e) {
@@ -11,6 +11,7 @@ class Index extends React.Component {
   render() {
     return (
       <div>
+        <p>限制用户输入的input组件：</p>
         <RegexInput onChange={(e) => this.onChange(e)} onEmpty={(e) => this.onEmpty(e) }/>
       </div>
     )
