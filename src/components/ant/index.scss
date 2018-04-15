@@ -1,0 +1,40 @@
+.ant-form-group {
+  .ant-form-item {
+    >div {
+      display: inline-block !important;
+      vertical-align: top !important;
+      float: none !important;
+      overflow: auto !important;
+    }
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+}
+
+.filterClass {
+  .ant-form-item {
+    width: 25%;
+    margin-right: 0px;
+    margin-bottom: 16px;
+    .ant-form-item-label {
+      width: 36%;
+    }
+    .ant-form-item-control-wrapper {
+      width: 64%;
+    }
+    .ant-calendar-picker {
+      width: 100% !important;
+    }
+    &.two-width {
+      width: 50%;
+      .ant-form-item-label {
+        width: 18.5%;
+      }
+      .ant-form-item-control-wrapper {
+        width: 81.5%;
+      }
+    }
+  }
+}
