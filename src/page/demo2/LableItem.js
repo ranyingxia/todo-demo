@@ -9,29 +9,41 @@ const FormItem = Form.Item;
 class LableItemComponent extends Component {
   static propTypes = {
     sortList: PropTypes.array,
+    itemList: PropTypes.array,
   }
   static defaultProps = {
     sortList: [],
+    itemList: [],
   }
   constructor(props) {
     super(props)
+    const { sortList, itemList } = this.initData(props.sortList, props.itemList);
     this.state = {
-      sortList: this.initData(props.sortList),
+      sortList,
+      itemList,
     }
-    this.NAMEKEY = this.state.sortList.length;
+    this.NAMEKEY = sortList.length;
   }
   /**
    * 组装数据。
    * 规格名的唯一标识为：nameKey
    * 每个规格值的唯一标识为：`${规格名标识}${规格值序列号}`
    */
-  initData(sortList) {
-    return sortList && sortList.map((item, index) => ({
+  initData(sortListData, itemListData) {
+    const sortList = sortListData && sortListData.map((item, index) => ({
       ...item,
       nameKey: index + 1,
       valueKey: item.value.map((value, num) => `${index + 1}${num}`),
       valueNum: item.value.length,
     }))
+    const itemList = this.dealItemList(sortList);
+    return { sortList, itemList }
+  }
+  /**
+   * 给每一行规格明细生成唯一的key
+   */
+  dealItemList(list) {
+    
   }
   // // 验证描述 最大长度
   // bindLimitMaxLength = (rule, value, callback) => {
@@ -65,7 +77,6 @@ class LableItemComponent extends Component {
       sortList: this.state.sortList,
     }, () => {
       this.NAMEKEY += 1;
-      console.log(this.state.sortList);
     })
   }
   delLabel(paramIndex) {
@@ -75,7 +86,10 @@ class LableItemComponent extends Component {
       sortList: newData,
     })
   }
-  // 添加规格值
+    /**
+   * 添加规格值
+   * 无论删除或新增，规格值唯一标识(valueKey)里的元素都不允许重复。
+   */
   addValue(paramIndex) {
     const newData = [...this.state.sortList];
     const {value, valueKey, valueNum, nameKey, ...other} = newData[paramIndex];
@@ -108,7 +122,7 @@ class LableItemComponent extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        console.log(this.state.sortList);
       }
     });
   }

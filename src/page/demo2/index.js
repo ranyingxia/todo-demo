@@ -34,38 +34,34 @@ class Demo2 extends React.Component {
     super(props);
     this.state = {
       sortList: [
-        // {
-        //   "name": "颜色",
-        //   "value": ["白色", "黑色", "灰色"]
-        // },
-        // {
-        //   "name": "套餐",
-        //   "value": ["套餐一", "套餐二"]
-        // },
+        {
+          "name": "颜色",
+          "value": ["白色", "黑色", "灰色"]
+        },
+        {
+          "name": "套餐",
+          "value": ["套餐一", "套餐二"]
+        },
         // {
         //   "name": "尺码",
         //   "value": ["大", "中", "小"]
         // }
       ],
       itemList: [
-        // {
-        //   uid: '102030',
-        //   color: 'red',
-        //   combination: '套餐一',
-        //   size: '大',
-        //   price: '1000',
-        //   stock: 20,
-        //   num: 34354356,
-        //   url: '',
-        // }
+        {
+          uid: '102030',
+          color: 'red',
+          combination: '套餐一',
+          size: '大',
+          price: '1000',
+          stock: 20,
+          num: 34354356,
+          url: '',
+        }
       ],
     };
   }
   componentDidMount() {
-  }
-  //删除规格项
-  delItem(e) {
-
   }
   // 拼接表头
   dealHead() {
